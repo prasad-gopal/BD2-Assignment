@@ -16,9 +16,9 @@ app.get('/hotels/sort/pricing', (req, res) => {
   let copyHotels = hotels.slice();
   let result;
   if (pricing.toLowerCase() === 'low-to-high') {
-    result = copyHotels.sort(sortByAscending);
-  } else if (pricing.toLowerCase() === 'high-to-low') {
-    results = copyHotels.sort(sortByDescending);
+    result = copyHotels.toSorted(sortByAscending);
+  } else if(pricing.toLowerCase() === 'high-to-low') {
+    result = copyHotels.toSorted(sortByDescending);
   }
   res.json({ hotels: result });
 });
